@@ -35,7 +35,7 @@ class EventTicket extends StatelessWidget {
               children: [
                 //TOP IMAGE
                 AspectRatio(
-                  aspectRatio: 2,
+                  aspectRatio: 1.75,
                   child: Container(
                     height: 150,
                     decoration: BoxDecoration(

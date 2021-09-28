@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_leap/event_ticket.dart';
+import 'package:line_leap/search_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'LineLeapDemo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -308,26 +310,6 @@ class Perk extends StatelessWidget {
           ),
         )
       ],
-    );
-  }
-}
-
-class SearchBar extends StatelessWidget {
-  const SearchBar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 0,
-      left: 200,
-      right: 200,
-      child: Container(
-        color: Colors.white,
-        width: 400,
-        height: 50,
-      ),
     );
   }
 }
