@@ -67,27 +67,30 @@ class EventTicket extends StatelessWidget {
                           ),
                         ),
                       ),
-                      (artist.length > 0)
+                      (artist.isNotEmpty)
                           ? Text(
                               artist,
+                              softWrap: true,
                               style: GoogleFonts.lato(
                                 fontSize: 16,
                                 color: const Color.fromARGB(255, 92, 107, 121),
                               ),
                             )
                           : const SizedBox.shrink(),
-                      (dates.length > 0)
+                      (dates.isNotEmpty)
                           ? Text(
                               dates,
+                              softWrap: true,
                               style: GoogleFonts.lato(
                                 fontSize: 16,
                                 color: const Color.fromARGB(255, 92, 107, 121),
                               ),
                             )
                           : const SizedBox.shrink(),
-                      (location.length > 0)
+                      (location.isNotEmpty)
                           ? Text(
                               location,
+                              softWrap: true,
                               style: GoogleFonts.lato(
                                 fontSize: 16,
                                 color: const Color.fromARGB(255, 92, 107, 121),

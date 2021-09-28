@@ -63,100 +63,205 @@ class _MyHomePageState extends State<MyHomePage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Positioned(
-                    top: 0,
-                    child: Stack(
-                      children: [
-                        Container(
-                          child: Image.asset('assets/HeroImage.png'),
-                          constraints: const BoxConstraints(maxHeight: 400),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: 200,
-                          right: 200,
-                          child: Container(
-                            color: Colors.white,
-                            width: 400,
-                            height: 50,
-                          ),
-                        )
-                      ],
-                    ),
+                  Stack(
+                    children: [
+                      Container(
+                        child: Image.asset('assets/HeroImage.png'),
+                        constraints: const BoxConstraints(maxHeight: 400),
+                      ),
+                      SearchBar()
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(70, 50, 70, 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 15.0, left: 8),
-                          child: Text(
-                            'Event Tickets',
-                            style: GoogleFonts.lato(
-                                fontWeight: FontWeight.w900,
-                                fontSize: 32,
-                                color: Colors.white),
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            EventTicket(
-                              "Diplo Presents: Higher Ground",
-                              'Diplo',
-                              'August 26, 6:00 PM +2 more',
-                              "Champs Downtown • State College, PA",
-                              Image.asset('assets/EventImage1.png'),
-                            ),
-                            EventTicket(
-                              'Trippie Redd - Neon Shark Live',
-                              "Trippie REdd",
-                              "Fri, August 26, 6:00 PM +2 more",
-                              "Rick's American Cafe • Ann Arbor, MI",
-                              Image.asset('assets/EventImage2.png'),
-                            ),
-                            EventTicket(
-                              'Kacey Musgraves - oh, what a word: tour II',
-                              'Kacey Musgraves, Maggie Rogers, Yola',
-                              'Fri, August 26, 6:00 PM +2 more',
-                              "Bridgestone Arena • Nashville, TN",
-                              Image.asset('assets/EventImage3.png'),
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            EventTicket(
-                              "Diplo Presents: Higher Ground",
-                              'DOSK',
-                              'August 26, 6:00 PM +2 more',
-                              "Champs Downtown • State College, PA",
-                              Image.asset('assets/EventImage4.png'),
-                            ),
-                            EventTicket(
-                              'Diplo Presents: Higher Ground',
-                              'Wale',
-                              'August 26, 6:00 PM +2 more',
-                              "Champs Downtown • State College, PA",
-                              Image.asset('assets/EventImage5.png'),
-                            ),
-                            EventTicket(
-                              'Back to School Bar Crawl',
-                              "",
-                              "Fri, August 26, 6:00 PM +2 more",
-                              "Champs Downtown • State College, PA",
-                              Image.asset('assets/EventImage6.png'),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
+                  EventTickets(),
+                  Promotion(),
+                  Container(
+                    color: Colors.indigo,
+                    height: 200,
+                  ),
+                  Container(
+                    color: Colors.green,
+                    height: 60,
                   )
                 ],
               ),
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Promotion extends StatelessWidget {
+  const Promotion({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 650,
+      child: Row(
+        children: [
+          Expanded(
+            child: Center(
+              child: Container(
+                //color: Colors.redAccent,
+                child: Stack(
+                  children: [
+                    Container(
+                      height: 600,
+                      child: Image.asset(
+                        'assets/Blob.png',
+                      ),
+                      transform: Matrix4.translationValues(
+                          -40, //MediaQuery.of(context).size.width * .1,
+                          30.0,
+                          0.0),
+                    ),
+                    Center(
+                      child: Container(
+                        height: 620,
+                        child: Image.asset('assets/Phone.png'),
+                        transform: Matrix4.translationValues(
+                            -4, //MediaQuery.of(context).size.width * .1,
+                            -10.0,
+                            0.0),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              color: Colors.greenAccent,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text('Own Your Night'),
+                  Text('Download the App'),
+                  Text(
+                      'Skip the line, order drinks, purchase event tickets, and much more all your favorite bars!'),
+                  //ListTile(leading: ,)
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class SearchBar extends StatelessWidget {
+  const SearchBar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      bottom: 0,
+      left: 200,
+      right: 200,
+      child: Container(
+        color: Colors.white,
+        width: 400,
+        height: 50,
+      ),
+    );
+  }
+}
+
+class EventTickets extends StatelessWidget {
+  const EventTickets({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    bool viewButton = true;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(70, 50, 70, 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 15.0, left: 8),
+            child: Text(
+              'Event Tickets',
+              style: GoogleFonts.lato(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 32,
+                  color: Colors.white),
+            ),
+          ),
+          Row(
+            children: [
+              EventTicket(
+                "Diplo Presents: Higher Ground",
+                'Diplo',
+                'August 26, 6:00 PM +2 more',
+                "Champs Downtown • State College, PA",
+                Image.asset('assets/EventImage1.png'),
+              ),
+              EventTicket(
+                'Trippie Redd - Neon Shark Live',
+                "Trippie REdd",
+                "Fri, August 26, 6:00 PM +2 more",
+                "Rick's American Cafe • Ann Arbor, MI",
+                Image.asset('assets/EventImage2.png'),
+              ),
+              EventTicket(
+                'Kacey Musgraves - oh, what a word: tour II',
+                'Kacey Musgraves, Maggie Rogers, Yola',
+                'Fri, August 26, 6:00 PM +2 more',
+                "Bridgestone Arena • Nashville, TN",
+                Image.asset('assets/EventImage3.png'),
+              )
+            ],
+          ),
+          Row(
+            children: [
+              EventTicket(
+                "Diplo Presents: Higher Ground",
+                'DOSK',
+                'August 26, 6:00 PM +2 more',
+                "Champs Downtown • State College, PA",
+                Image.asset('assets/EventImage4.png'),
+              ),
+              EventTicket(
+                'Diplo Presents: Higher Ground',
+                'Wale',
+                'August 26, 6:00 PM +2 more',
+                "Champs Downtown • State College, PA",
+                Image.asset('assets/EventImage5.png'),
+              ),
+              EventTicket(
+                'Back to School Bar Crawl',
+                "",
+                "Fri, August 26, 6:00 PM +2 more",
+                "Champs Downtown • State College, PA",
+                Image.asset('assets/EventImage6.png'),
+              )
+            ],
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(35),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("test"),
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(400, 40),
+                  primary: Color.fromARGB(255, 50, 69, 88),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
