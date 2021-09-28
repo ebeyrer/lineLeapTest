@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_leap/event_ticket.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -100,7 +101,7 @@ class Promotion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 650,
+      height: 670,
       child: Row(
         children: [
           Expanded(
@@ -134,23 +135,179 @@ class Promotion extends StatelessWidget {
               ),
             ),
           ),
+          ///////////////////  RIGHT SIDE OF PROMOTION///////////////////
           Expanded(
-            child: Container(
-              color: Colors.greenAccent,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('Own Your Night'),
-                  Text('Download the App'),
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      'Own Your Night',
+                      style: GoogleFonts.lato(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: Color.fromARGB(255, 92, 107, 121),
+                      ),
+                    ),
+                  ),
                   Text(
-                      'Skip the line, order drinks, purchase event tickets, and much more all your favorite bars!'),
-                  //ListTile(leading: ,)
+                    'Download the App',
+                    style: GoogleFonts.lato(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 44,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10.0, bottom: 10),
+                    child: Text(
+                      'Skip the line, order drinks, purchase event tickets, and much more all your favorite bars!',
+                      style: GoogleFonts.lato(
+                        fontWeight: FontWeight.normal,
+                        fontSize: 20,
+                        color: Color.fromARGB(255, 92, 107, 121),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Perk(
+                                icone: Image.asset('assets/LineSkip.png'),
+                                header: 'LineSkip',
+                                summary:
+                                    'LineSkip passes let you skip long lines at ' +
+                                        'your favorite bars, vanues, and events',
+                              ),
+                              Perk(
+                                icone: Image.asset('assets/Drinks.png'),
+                                header: 'Drinks',
+                                summary:
+                                    'LineSkip passes let you skip long lines at ' +
+                                        'your favorite bars, vanues, and events',
+                              ),
+                              Perk(
+                                icone: Image.asset('assets/Frame35.png'),
+                                header: 'Exclusive Deals',
+                                summary:
+                                    'LineSkip passes let you skip long lines at ' +
+                                        'your favorite bars, vanues, and events',
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Perk(
+                                icone: Image.asset('assets/Cover.png'),
+                                header: 'Cover',
+                                summary:
+                                    'LineSkip passes let you skip long lines at ' +
+                                        'your favorite bars, vanues, and events',
+                              ),
+                              Perk(
+                                icone: Image.asset('assets/Events.png'),
+                                header: 'Event Tickets',
+                                summary:
+                                    'LineSkip passes let you skip long lines at ' +
+                                        'your favorite bars, vanues, and events',
+                              ),
+                              Perk(
+                                icone: Image.asset('assets/Reservations.png'),
+                                header: 'Reservations',
+                                summary:
+                                    'LineSkip passes let you skip long lines at ' +
+                                        'your favorite bars, vanues, and events',
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: Image.asset('assets/Google Play.png'),
+                        iconSize: 150,
+                        onPressed: () => launch(
+                            'https://play.google.com/store/apps/details?id=io.Lineleap'),
+                      ),
+                      IconButton(
+                        icon: Image.asset('assets/App Store.png'),
+                        iconSize: 150,
+                        onPressed: () => launch(
+                            'https://apps.apple.com/us/app/lineleap/id960804043'),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
           )
         ],
       ),
+    );
+  }
+}
+
+class Perk extends StatelessWidget {
+  final Image icone;
+  final String header;
+  final String summary;
+
+  const Perk({
+    Key? key,
+    required this.icone,
+    required this.header,
+    required this.summary,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ImageIcon(
+          icone.image,
+          size: 40,
+          color: Colors.blue,
+        ),
+        Container(
+          width: 200,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  header,
+                  style: GoogleFonts.lato(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Text(
+                summary,
+                style: GoogleFonts.lato(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 92, 107, 121),
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
