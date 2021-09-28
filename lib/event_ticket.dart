@@ -10,46 +10,106 @@ class EventTicket extends StatelessWidget {
   final String dates;
   final String location;
 
-  EventTicket(this.artist, this.dates, this.location, this.pic, this.title);
+  EventTicket(this.title, this.artist, this.dates, this.location, this.pic);
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Card(
-      color: const Color.fromRGBO(2, 23, 48, 1),
-      borderOnForeground: true,
-      child: Container(
-        width: 300,
-        height: 400,
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 24, 46, 67),
-          borderRadius: BorderRadius.all(
-            Radius.circular(8),
-          ),
-        ),
-        child: Column(
-          children: [
-            pic,
-            Text(
-              title,
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Card(
+          color: const Color.fromRGBO(2, 23, 48, 1),
+          borderOnForeground: true,
+          child: Container(
+            width: 300,
+            height: 370,
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 24, 46, 67),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //TOP IMAGE
+                AspectRatio(
+                  aspectRatio: 2,
+                  child: Container(
+                    height: 150,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fitWidth,
+                        alignment: FractionalOffset.topCenter,
+                        image: pic.image,
+                      ),
+                    ),
+                  ),
+                ),
 
-              /// MAIN LINE
-              style: GoogleFonts.lato(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+                ////CARD INFORMATION===============================
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Text(
+                          title,
+
+                          /// MAIN LINE
+                          style: GoogleFonts.lato(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      (artist.length > 0)
+                          ? Text(
+                              artist,
+                              style: GoogleFonts.lato(
+                                fontSize: 16,
+                                color: const Color.fromARGB(255, 92, 107, 121),
+                              ),
+                            )
+                          : const SizedBox.shrink(),
+                      (dates.length > 0)
+                          ? Text(
+                              dates,
+                              style: GoogleFonts.lato(
+                                fontSize: 16,
+                                color: const Color.fromARGB(255, 92, 107, 121),
+                              ),
+                            )
+                          : const SizedBox.shrink(),
+                      (location.length > 0)
+                          ? Text(
+                              location,
+                              style: GoogleFonts.lato(
+                                fontSize: 16,
+                                color: const Color.fromARGB(255, 92, 107, 121),
+                              ),
+                            )
+                          : const SizedBox.shrink(),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Container(
+                          alignment: Alignment.bottomLeft,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text('From \$99'),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            Text(
-              ///INFO
-              artist + '\n' + dates + '\n' + location,
-              //'Diplo\nFri, August 26, 6:00 PM +2 more\nChamps Downtown • State College, PA',
-              style: GoogleFonts.lato(
-                fontSize: 16,
-                color: Color.fromARGB(255, 92, 107, 121),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

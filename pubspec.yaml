@@ -63,6 +63,11 @@ flutter:
     - assets/HeroImage.png
     - assets/EventImage1.png
     - assets/EventImage2.png
+    - assets/EventImage3.png
+    - assets/EventImage4.png
+    - assets/EventImage5.png
+    - assets/EventImage6.png
+    - assets/chevron-down.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

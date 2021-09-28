@@ -34,11 +34,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
+  }
+
+  late ScrollController _controller;
+
+  @override
+  void initState() {
+    _controller = ScrollController();
+    super.initState();
   }
 
   @override
@@ -50,61 +57,105 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: const Color.fromRGBO(0, 0, 0, .3),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                color: const Color.fromRGBO(2, 23, 48, 1),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Stack(
-                        children: [
-                          Image.asset('assets/HeroImage.png'),
-                          Positioned(
-                            bottom: 0,
-                            left: 200,
-                            right: 200,
-                            child: Container(
-                              color: Colors.white,
-                              width: 400,
-                              height: 50,
-                            ),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text(
+        child: Container(
+          color: const Color.fromRGBO(2, 23, 48, 1),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Positioned(
+                    top: 0,
+                    child: Stack(
+                      children: [
+                        Container(
+                          child: Image.asset('assets/HeroImage.png'),
+                          constraints: const BoxConstraints(maxHeight: 400),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          left: 200,
+                          right: 200,
+                          child: Container(
+                            color: Colors.white,
+                            width: 400,
+                            height: 50,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(70, 50, 70, 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 15.0, left: 8),
+                          child: Text(
                             'Event Tickets',
                             style: GoogleFonts.lato(
-                                fontSize: 32, color: Colors.white),
+                                fontWeight: FontWeight.w900,
+                                fontSize: 32,
+                                color: Colors.white),
                           ),
-                          Row(
-                            children: [
-                              EventTicket(
-                                  'Diplo',
-                                  'August 26, 6:00 PM +2 more',
-                                  "Champs Downtown • State College, PA",
-                                  Image.asset('assets/EventImage1.png'),
-                                  "Diplo Presents"),
-                              EventTicket(
-                                  'Diplo',
-                                  'August 26, 6:00 PM +2 more',
-                                  "Champs Downtown • State College, PA",
-                                  Image.asset('assets/EventImage2.png'),
-                                  "Diplo Presents"),
-                            ],
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
+                        ),
+                        Row(
+                          children: [
+                            EventTicket(
+                              "Diplo Presents: Higher Ground",
+                              'Diplo',
+                              'August 26, 6:00 PM +2 more',
+                              "Champs Downtown • State College, PA",
+                              Image.asset('assets/EventImage1.png'),
+                            ),
+                            EventTicket(
+                              'Trippie Redd - Neon Shark Live',
+                              "Trippie REdd",
+                              "Fri, August 26, 6:00 PM +2 more",
+                              "Rick's American Cafe • Ann Arbor, MI",
+                              Image.asset('assets/EventImage2.png'),
+                            ),
+                            EventTicket(
+                              'Kacey Musgraves - oh, what a word: tour II',
+                              'Kacey Musgraves, Maggie Rogers, Yola',
+                              'Fri, August 26, 6:00 PM +2 more',
+                              "Bridgestone Arena • Nashville, TN",
+                              Image.asset('assets/EventImage3.png'),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            EventTicket(
+                              "Diplo Presents: Higher Ground",
+                              'DOSK',
+                              'August 26, 6:00 PM +2 more',
+                              "Champs Downtown • State College, PA",
+                              Image.asset('assets/EventImage4.png'),
+                            ),
+                            EventTicket(
+                              'Diplo Presents: Higher Ground',
+                              'Wale',
+                              'August 26, 6:00 PM +2 more',
+                              "Champs Downtown • State College, PA",
+                              Image.asset('assets/EventImage5.png'),
+                            ),
+                            EventTicket(
+                              'Back to School Bar Crawl',
+                              "",
+                              "Fri, August 26, 6:00 PM +2 more",
+                              "Champs Downtown • State College, PA",
+                              Image.asset('assets/EventImage6.png'),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
               ),
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );
