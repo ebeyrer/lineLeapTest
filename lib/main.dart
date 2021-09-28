@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:line_leap/event_ticket.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,7 +59,46 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Center(
                   child: Column(
                     children: [
-                      Image.asset('assets/HeroImage.png'),
+                      Stack(
+                        children: [
+                          Image.asset('assets/HeroImage.png'),
+                          Positioned(
+                            bottom: 0,
+                            left: 200,
+                            right: 200,
+                            child: Container(
+                              color: Colors.white,
+                              width: 400,
+                              height: 50,
+                            ),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            'Event Tickets',
+                            style: GoogleFonts.lato(
+                                fontSize: 32, color: Colors.white),
+                          ),
+                          Row(
+                            children: [
+                              EventTicket(
+                                  'Diplo',
+                                  'August 26, 6:00 PM +2 more',
+                                  "Champs Downtown • State College, PA",
+                                  Image.asset('assets/EventImage1.png'),
+                                  "Diplo Presents"),
+                              EventTicket(
+                                  'Diplo',
+                                  'August 26, 6:00 PM +2 more',
+                                  "Champs Downtown • State College, PA",
+                                  Image.asset('assets/EventImage2.png'),
+                                  "Diplo Presents"),
+                            ],
+                          )
+                        ],
+                      )
                     ],
                   ),
                 ),
