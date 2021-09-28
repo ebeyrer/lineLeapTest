@@ -56,9 +56,80 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text(widget.title),
-        backgroundColor: const Color.fromRGBO(0, 0, 0, .3),
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        backgroundColor: Color.fromRGBO(0, 0, 0, .3),
+
+        title: IconButton(
+          iconSize: 100,
+          icon: Image.asset('assets/Logo.png'),
+          onPressed: () {},
+        ),
+        actions: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Text(
+                  'Brand Ambassadors',
+                  style: GoogleFonts.lato(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Text(
+                  'Venue Owners',
+                  style: GoogleFonts.lato(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Text(
+                  'Buy Passes',
+                  style: GoogleFonts.lato(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              IconButton(
+                iconSize: 18,
+                icon: Image.asset('assets/search-light.png'),
+                onPressed: () {},
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('Download the App'),
+              ),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    WidgetSpan(
+                      child: IconButton(
+                        icon: Image.asset('assets/MyAccount.png'),
+                        onPressed: () {},
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'My Account',
+                      style:
+                          GoogleFonts.lato(fontSize: 18, color: Colors.white),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          )
+        ],
       ),
+      //AppBar(
+      //   title: Text(widget.title),
+      //   backgroundColor: const Color.fromRGBO(0, 0, 0, .3),
+      // ),
       body: Center(
         child: Container(
           color: const Color.fromRGBO(2, 23, 48, 1),
