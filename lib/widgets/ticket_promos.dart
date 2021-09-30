@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'event_ticket.dart';
 
@@ -81,7 +82,7 @@ class EventTickets extends StatelessWidget {
               padding: const EdgeInsets.all(35),
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text("test"),
+                child: Text("See 6 More"),
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(400, 40),
                   primary: Color.fromARGB(255, 50, 69, 88),

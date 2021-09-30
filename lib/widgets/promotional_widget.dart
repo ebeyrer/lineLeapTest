@@ -192,14 +192,14 @@ class Perk extends StatelessWidget {
             size: 40,
             color: Colors.blue,
           ),
-          Container(
-            width: 220,
-            child: Expanded(
+          Expanded(
+            child: Container(
+              width: 220,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                     child: Text(
                       header,
                       style: GoogleFonts.lato(

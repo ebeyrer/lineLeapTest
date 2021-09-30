@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:line_leap/event_ticket.dart';
-import 'package:line_leap/promotional_widget.dart';
-import 'package:line_leap/search_bar.dart';
-import 'package:line_leap/ticket_promos.dart';
+import 'package:line_leap/widgets/footer_widget.dart';
+import 'package:line_leap/widgets/promotional_widget.dart';
+import 'package:line_leap/widgets/search_bar_widget.dart';
+import 'package:line_leap/widgets/ticket_promos.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'footer_widget.dart';
-import 'leap_app_bar.dart';
+import 'widgets/leap_app_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,20 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  late ScrollController _controller;
-
   @override
   void initState() {
-    _controller = ScrollController();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    const edgeInsets = const EdgeInsets.all(18.0);
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: LeapAppBar(),
+      appBar: const LeapAppBar(),
       body: Center(
         child: Container(
           color: const Color.fromRGBO(2, 23, 48, 1),
@@ -78,15 +73,60 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         constraints: const BoxConstraints(maxHeight: 400),
                       ),
-                      SearchBar()
+                      const SearchBar()
                     ],
                   ),
-                  EventTickets(),
-                  Promotionals(),
-                  Footer(),
-                  Container(
-                    color: Colors.green,
-                    height: 60,
+                  const EventTickets(),
+                  const Promotionals(),
+                  const Footer(),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(70, 0, 70, 0),
+                    child: SizedBox(
+                      height: 50,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Text(
+                              '© LineLeap 2020',
+                              style: GoogleFonts.lato(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 16,
+                                color: Color.fromARGB(255, 92, 107, 121),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Privacy Policy',
+                                style: GoogleFonts.lato(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 16,
+                                  color: Color.fromARGB(255, 92, 107, 121),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Terms & Conditions',
+                                style: GoogleFonts.lato(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 16,
+                                  color: Color.fromARGB(255, 92, 107, 121),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   )
                 ],
               ),
