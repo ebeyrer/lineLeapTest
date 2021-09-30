@@ -35,7 +35,6 @@ class Footer extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      style: ButtonStyle(alignment: Alignment.bottomLeft),
                       child: Text(
                         'Contact Us',
                         textAlign: TextAlign.left,
@@ -93,7 +92,6 @@ class Footer extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      style: ButtonStyle(alignment: Alignment.bottomLeft),
                       child: Text(
                         'Buy Event Tickets',
                         textAlign: TextAlign.left,
@@ -106,14 +104,12 @@ class Footer extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Container(
-                        child: Text(
-                          'Buy Gift Cards',
-                          style: GoogleFonts.lato(
-                            fontWeight: FontWeight.normal,
-                            fontSize: 16,
-                            color: Color.fromARGB(255, 92, 107, 121),
-                          ),
+                      child: Text(
+                        'Buy Gift Cards',
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 16,
+                          color: Color.fromARGB(255, 92, 107, 121),
                         ),
                       ),
                     ),
@@ -162,7 +158,6 @@ class Footer extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      style: ButtonStyle(alignment: Alignment.bottomLeft),
                       child: Text(
                         'Learn More',
                         textAlign: TextAlign.left,

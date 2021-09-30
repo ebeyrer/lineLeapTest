@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EventTicket extends StatelessWidget {
   final Image pic;
@@ -115,7 +116,8 @@ class EventTicket extends StatelessWidget {
                           child: Container(
                             alignment: Alignment.bottomLeft,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () =>
+                                  launch('https://linktr.ee/LineLeap'),
                               child: Text('From \$99'),
                             ),
                           ),
