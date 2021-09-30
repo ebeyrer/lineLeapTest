@@ -15,12 +15,10 @@ class LeapAppBar extends StatelessWidget implements PreferredSizeWidget {
       // the App.build method, and use it to set our appbar title.
       backgroundColor: Color.fromRGBO(0, 0, 0, .3),
 
-      title: Expanded(
-        child: IconButton(
-          iconSize: 100,
-          icon: Image.asset('assets/Logo.png'),
-          onPressed: () {},
-        ),
+      title: IconButton(
+        iconSize: 100,
+        icon: Image.asset('assets/Logo.png'),
+        onPressed: () {},
       ),
       actions: [
         Row(

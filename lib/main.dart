@@ -73,7 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   Stack(
                     children: [
                       Container(
-                        child: Image.asset('assets/HeroImage.png'),
+                        child: Image.asset(
+                          'assets/HeroImage.png',
+                          fit: BoxFit.cover,
+                        ),
                         constraints: const BoxConstraints(maxHeight: 400),
                       ),
                       SearchBar()
@@ -82,8 +85,46 @@ class _MyHomePageState extends State<MyHomePage> {
                   EventTickets(),
                   Promotion(),
                   Container(
-                    color: Colors.indigo,
                     height: 200,
+                    child: Row(
+                      children: [
+                        Expanded(child: Socials()),
+                        Expanded(
+                          child: Container(
+                            // color: Colors.red,
+                            child: Column(
+                              children: [
+                                Text(
+                                  'Company',
+                                  style: GoogleFonts.lato(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 24,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'Contact Us',
+                                      style: GoogleFonts.lato(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 16,
+                                        color:
+                                            Color.fromARGB(255, 92, 107, 121),
+                                      ),
+                                    ))
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(color: Colors.greenAccent),
+                        ),
+                        Expanded(
+                          child: Container(color: Colors.orange),
+                        )
+                      ],
+                    ),
                   ),
                   Container(
                     color: Colors.green,
@@ -99,6 +140,60 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+class Socials extends StatelessWidget {
+  const Socials({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 70.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            'assets/Logo.png',
+            width: 160,
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              IconButton(
+                iconSize: 25,
+                icon: Image.asset('assets/instagram.png'),
+                onPressed: () {},
+              ),
+              IconButton(
+                iconSize: 25,
+                icon: Image.asset('assets/facebook.png'),
+                onPressed: () {},
+              ),
+              IconButton(
+                iconSize: 25,
+                icon: Image.asset('assets/twitter.png'),
+                onPressed: () {},
+              ),
+              IconButton(
+                iconSize: 25,
+                icon: Image.asset('assets/tiktok.png'),
+                onPressed: () {},
+              ),
+            ],
+          ),
+          SizedBox(
+            width: 160,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Center(child: Text('Download the App')),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class Promotion extends StatelessWidget {
   const Promotion({
     Key? key,
@@ -107,10 +202,11 @@ class Promotion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 670,
+      height: 700,
       child: Row(
         children: [
           Expanded(
+            flex: 4,
             child: Center(
               child: Container(
                 //color: Colors.redAccent,
@@ -143,6 +239,7 @@ class Promotion extends StatelessWidget {
           ),
           ///////////////////  RIGHT SIDE OF PROMOTION///////////////////
           Expanded(
+            flex: 5,
             child: Padding(
               padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
               child: Column(
@@ -185,25 +282,23 @@ class Promotion extends StatelessWidget {
                           child: Column(
                             children: [
                               Perk(
-                                icone: Image.asset('assets/LineSkip.png'),
                                 header: 'LineSkip',
+                                icone: Image.asset('assets/LineSkip.png'),
                                 summary:
                                     'LineSkip passes let you skip long lines at ' +
                                         'your favorite bars, vanues, and events',
                               ),
                               Perk(
-                                icone: Image.asset('assets/Drinks.png'),
                                 header: 'Drinks',
+                                icone: Image.asset('assets/Drinks.png'),
                                 summary:
-                                    'LineSkip passes let you skip long lines at ' +
-                                        'your favorite bars, vanues, and events',
+                                    'Order your drinks right from your phone. No more splitting tabs or soggy receipts!',
                               ),
                               Perk(
-                                icone: Image.asset('assets/Frame35.png'),
                                 header: 'Exclusive Deals',
+                                icone: Image.asset('assets/Frame35.png'),
                                 summary:
-                                    'LineSkip passes let you skip long lines at ' +
-                                        'your favorite bars, vanues, and events',
+                                    'Use LineLeap for exclusive deals on your favorite drinks!',
                               )
                             ],
                           ),
@@ -212,25 +307,22 @@ class Promotion extends StatelessWidget {
                           child: Column(
                             children: [
                               Perk(
-                                icone: Image.asset('assets/Cover.png'),
                                 header: 'Cover',
+                                icone: Image.asset('assets/Cover.png'),
                                 summary:
-                                    'LineSkip passes let you skip long lines at ' +
-                                        'your favorite bars, vanues, and events',
+                                    'Ditch the ATM! PAy with Venmo, PayPal, or credit card using the LineLeap App.',
                               ),
                               Perk(
-                                icone: Image.asset('assets/Events.png'),
                                 header: 'Event Tickets',
+                                icone: Image.asset('assets/Events.png'),
                                 summary:
-                                    'LineSkip passes let you skip long lines at ' +
-                                        'your favorite bars, vanues, and events',
+                                    'Get Tickets and vip acces to dope concerts you won\' find anywhere else.',
                               ),
                               Perk(
-                                icone: Image.asset('assets/Reservations.png'),
                                 header: 'Reservations',
+                                icone: Image.asset('assets/Reservations.png'),
                                 summary:
-                                    'LineSkip passes let you skip long lines at ' +
-                                        'your favorite bars, vanues, and events',
+                                    'Savve your spot in line or grab the perfect table in seconds.',
                               )
                             ],
                           ),
@@ -278,42 +370,48 @@ class Perk extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ImageIcon(
-          icone.image,
-          size: 40,
-          color: Colors.blue,
-        ),
-        Container(
-          width: 200,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  header,
-                  style: GoogleFonts.lato(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Text(
-                summary,
-                style: GoogleFonts.lato(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 16,
-                  color: Color.fromARGB(255, 92, 107, 121),
-                ),
-              ),
-            ],
+    return Expanded(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ImageIcon(
+            icone.image,
+            size: 40,
+            color: Colors.blue,
           ),
-        )
-      ],
+          Container(
+            width: 220,
+            child: Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      header,
+                      style: GoogleFonts.lato(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      summary,
+                      style: GoogleFonts.lato(
+                        fontWeight: FontWeight.normal,
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 92, 107, 121),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
