@@ -61,28 +61,26 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Container(
           color: const Color.fromRGBO(2, 23, 48, 1),
-          child: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        child: Image.asset(
-                          'assets/HeroImage.png',
-                          fit: BoxFit.cover,
-                        ),
-                        //constraints: const BoxConstraints(maxHeight: 400),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      child: Image.asset(
+                        'assets/HeroImage.png',
+                        fit: BoxFit.cover,
                       ),
-                      const SearchBar()
-                    ],
-                  ),
-                  const EventTickets(),
-                  const Promotionals(),
-                  const Footer(),
-                  const Legal()
-                ],
-              ),
+                      //constraints: const BoxConstraints(maxHeight: 400),
+                    ),
+                    const SearchBar()
+                  ],
+                ),
+                const EventTickets(),
+                const Promotionals(),
+                const Footer(),
+                const Legal()
+              ],
             ),
           ),
         ),

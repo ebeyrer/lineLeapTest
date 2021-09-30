@@ -19,41 +19,37 @@ class EventTicket extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(5.0),
-        child: AspectRatio(
-          aspectRatio: 2 / 3,
-          child: Card(
-            color: const Color.fromRGBO(2, 23, 48, 1),
-            borderOnForeground: true,
-            child: Container(
-              width: 300,
-              height: 370,
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 24, 46, 67),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(8),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  //TOP IMAGE
-                  AspectRatio(
-                    aspectRatio: 1.75,
-                    child: Container(
-                      height: 150,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fitWidth,
-                          alignment: FractionalOffset.topCenter,
-                          image: pic.image,
-                        ),
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          color: Color.fromRGBO(19, 47, 69, 1),
+          borderOnForeground: true,
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //TOP IMAGE
+                AspectRatio(
+                  aspectRatio: 1.75,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15.0),
+                        topRight: Radius.circular(15.0),
+                      ),
+                      image: DecorationImage(
+                        fit: BoxFit.fitWidth,
+                        alignment: FractionalOffset.topCenter,
+                        image: pic.image,
                       ),
                     ),
                   ),
-
-                  ////CARD INFORMATION===============================
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                    constraints: BoxConstraints(minHeight: 100),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -112,7 +108,7 @@ class EventTicket extends StatelessWidget {
                               )
                             : const SizedBox.shrink(),
                         Padding(
-                          padding: const EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(top: 20, bottom: 20),
                           child: Container(
                             alignment: Alignment.bottomLeft,
                             child: ElevatedButton(
@@ -125,8 +121,8 @@ class EventTicket extends StatelessWidget {
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
