@@ -88,6 +88,7 @@ flutter:
     - assets/tiktok.png
     - assets/twitter.png
     - assets/facebook.png
+    - assets/map-pin.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

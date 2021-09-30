@@ -53,7 +53,7 @@ class Promotionals extends StatelessWidget {
             Expanded(
               flex: 5,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
+                padding: const EdgeInsets.fromLTRB(30, 30, 70, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
